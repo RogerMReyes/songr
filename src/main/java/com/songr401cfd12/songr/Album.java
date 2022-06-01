@@ -6,6 +6,7 @@ public class Album {
     private int songCount;
     private int length;
     private String imageUrl;
+    private String imageLocal;
 
 
     public Album() {
@@ -22,6 +23,15 @@ public class Album {
         this.songCount = songCount;
         this.length = length;
         this.imageUrl = imageUrl;
+    }
+
+    public Album(String title, String artist, int songCount, int length, String imageUrl, String imageLocal) {
+        this.title = title;
+        this.artist = artist;
+        this.songCount = songCount;
+        this.length = length;
+        this.imageUrl = imageUrl;
+        this.imageLocal = imageLocal;
     }
 
     public String getTitle() {
@@ -42,5 +52,9 @@ public class Album {
 
     public String getImageUrl() {
         return imageUrl;
+    }
+
+    public String getImageLocal() {
+        return imageLocal;
     }
 }
