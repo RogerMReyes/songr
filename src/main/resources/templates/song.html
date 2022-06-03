@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Hello there!</title>
+    <link rel="stylesheet" href="/album.css">
+</head>
+<body>
+<form action="/addSong" method="post">
+    <fieldset>
+        <legend>Add Song to Album</legend>
+        <label for="title">Song Title</label>
+        <input type="text" name="title" id="title">
+        <label for="length">Song Length</label>
+        <input type="text" name="length" id="length">
+        <label for="trackNumber">Track Number</label>
+        <input type="text" name="trackNumber" id="trackNumber">
+        <label for="albumTitle">Album Title</label>
+        <input type="text" name="albumTitle" id="albumTitle">
+        <input type="submit" value="Add Song to Album">
+    </fieldset>
+</form>
+<div>
+
+</div>
+</body>

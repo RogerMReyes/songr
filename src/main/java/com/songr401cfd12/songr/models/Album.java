@@ -1,6 +1,8 @@
 package com.songr401cfd12.songr.models;
 
 import javax.persistence.*;
+import java.util.List;
+
 @Entity
 public class Album {
     @Id
@@ -13,21 +15,11 @@ public class Album {
     private String imageUrl;
     private String imageLocal;
 
+    @OneToMany(mappedBy = "album")
+    List<Song> songsInAlbum;
+
 
     public Album() {
-    }
-
-    public Album(String title, String artist) {
-        this.title = title;
-        this.artist = artist;
-    }
-
-    public Album(String title, String artist, int songCount, int length, String imageUrl) {
-        this.title = title;
-        this.artist = artist;
-        this.songCount = songCount;
-        this.length = length;
-        this.imageUrl = imageUrl;
     }
 
     public Album(String title, String artist, int songCount, int length, String imageUrl, String imageLocal) {
@@ -93,5 +85,13 @@ public class Album {
 
     public void setImageLocal(String imageLocal) {
         this.imageLocal = imageLocal;
+    }
+
+    public List<Song> getSongsInAlbum() {
+        return songsInAlbum;
+    }
+
+    public void setSongsInAlbum(List<Song> songsInAlbum) {
+        this.songsInAlbum = songsInAlbum;
     }
 }

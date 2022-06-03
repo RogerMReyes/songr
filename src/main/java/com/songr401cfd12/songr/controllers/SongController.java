@@ -9,29 +9,32 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.view.RedirectView;
-
 
 import java.util.List;
 
 @Controller
-public class AlbumsController {
+public class SongController {
+
     @Autowired
     AlbumRepository albumRepository;
 
-    @GetMapping("/albums")
-    public String getAlbums(Model m){
-        List<Album> albumList = albumRepository.findAll();
-        m.addAttribute("albums",albumList);
-        return "album";
+    @Autowired
+    SongRepository songRepository;
+
+    @GetMapping("/songs")
+    public String getSongs(Model m){
+        List<Song> songList = songRepository.findAll();
+        m.addAttribute("songs",songList);
+        return "song";
     }
 
-    @PostMapping("/addAlbum")
-    public RedirectView createAlbum(String title, String artist, int songCount, int length, String imageUrl, String imageLocal){
-        Album newAlbum = new Album(title, artist, songCount, length, imageUrl, imageLocal);
-        albumRepository.save(newAlbum);
+    @PostMapping("/addSong")
+    public RedirectView addSong(String title, int length, int trackNumber, String albumTitle) {
+        Album album = albumRepository.findByTitle(albumTitle);
+        Song newSong = new Song(title, length, trackNumber, album);
+        songRepository.save(newSong);
+
         return new RedirectView("/albums");
     }
-
 }

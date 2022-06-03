@@ -5,22 +5,21 @@
     <link rel="stylesheet" href="/album.css">
 </head>
 <body>
-<form action="addAlbum" method="post">
+<form action="/addAlbum" method="post">
     <fieldset>
         <legend>Add Album</legend>
         <label for="title">Album Title</label>
-        <input type="text" name="title">
+        <input type="text" name="title" id="title">
         <label for="artist">Album Artist</label>
-        <input type="text" name="artist">
+        <input type="text" name="artist" id="artist">
         <label for="songCount">Song Count</label>
-        <input type="text" name="songCount">
+        <input type="text" name="songCount" id="songCount">
         <label for="length">Length</label>
-        <input type="text" name="length">
+        <input type="text" name="length" id="length">
         <label for="imageUrl">Url to Album Cover</label>
-        <input type="text" name="imageUrl">
+        <input type="text" name="imageUrl" id="imageUrl">
         <label for="imageLocal">Local File Path</label>
-        <input type="text" name="imageLocal">
-
+        <input type="text" name="imageLocal" id="imageLocal">
         <input type="submit" value="Add Album">
     </fieldset>
 </form>
@@ -33,6 +32,10 @@
         <li th:text="'Album Song Count: ' + ${album.songCount}"/>
         <li th:text="'Album Length: ' + ${album.length} + 'seconds'"/>
         <li th:text="'Album Artist: ' + ${album.artist}"/>
+        <h2>Songs</h2>
+        <ul th:each="song : ${album.songsInAlbum}">
+            <li th:text="${song.trackNumber} + '.' + ${song.title}"/>
+        </ul>
     </ul>
 </div>
 </body>
