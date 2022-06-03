@@ -37,3 +37,5 @@ Finish time: 6:00pm
 Actual time needed to complete: 2 hours
 
 Summary: In this lab we went into connecting databases together. I created a new controller, template, model, and repository for songs and connected them to Albums through a One to Many link. This gives the songs an ID to match to the album which is then held as a list inside of the album class. 
+
+**Assisted by Mike and Abdulahi**
